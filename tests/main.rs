@@ -6,7 +6,7 @@ async fn health_check_works() {
     let application = Application::new("127.0.0.1", 0).unwrap();
     let port = application.port();
     tokio::spawn(async {
-        application.start().await.unwrap();
+        application.start(false).await.unwrap();
     });
 
     let client = Client::new();

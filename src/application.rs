@@ -16,8 +16,10 @@ impl Application {
         Ok(Self { server, port })
     }
 
-    pub async fn start(self) -> anyhow::Result<()> {
-        setup_telemetry()?;
+    pub async fn start(self, enable_tracing: bool) -> anyhow::Result<()> {
+        if enable_tracing {
+            setup_telemetry()?;
+        }
         self.server.await?;
         Ok(())
     }

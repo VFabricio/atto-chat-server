@@ -8,6 +8,6 @@ async fn main() {
 
 async fn run() -> anyhow::Result<()> {
     let application = Application::new("127.0.0.1", 5000)?;
-    application.start().await?;
+    application.start(true).await?;
     Ok(())
 }
